@@ -1,12 +1,12 @@
 name: Build - release
-on:
+on: workflow_dispatch
+
 #    release:
 #        types: [created,edited]
 #    push:
 #        branches: [ "main"]
 #  repository_dispatch:
 #    types: [custom-event-name]
-     workflow_dispatch:        
 
 jobs:
   build:
