@@ -1,15 +1,9 @@
 name: Release 
 on: workflow_dispatch
 
-#    release:
-#        types: [created,edited]
-#    push:
-#        branches: [ "main"]
-#  repository_dispatch:
-#    types: [custom-event-name]
-
 jobs:
-  build:
+# Create distribution and docker image
+  build_zip_docker_image:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -41,8 +35,8 @@ jobs:
     - name: Login to Docker Hub
       uses: docker/login-action@v3
       with:
-        username: "pavelstastny"
-        password: ${{ secrets.DOCKERHUB_TOKEN }}  
+        username: ${{secrets.DOCKERHUB_USERNAME}}
+        password: ${{secrets.DOCKERHUB_TOKEN}}  
     - name: Build and push
       uses: docker/build-push-action@v5
       with:
