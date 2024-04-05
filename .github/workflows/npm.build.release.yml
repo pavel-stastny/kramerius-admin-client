@@ -31,5 +31,5 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: kramerius-admin
-        path: /dist-zip/kramerius-admin.zip
+        path: dist-zip/kramerius-admin.zip
         
