@@ -29,16 +29,17 @@
     "@ckeditor/ckeditor5-build-classic": "^17.0.0",
     "@ckeditor/ckeditor5-build-decoupled-document": "^17.0.0",
     "@ckeditor/ckeditor5-upload": "^17.0.0",
-    "moment": "^2.29.1",
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
+    "archiver": "^7.0.1",
+    "echarts": "^5.3.0",
+    "moment": "^2.29.1",
+    "ngx-echarts": "^7.1.0",
     "rxjs": "~6.6.7",
     "timers": "^0.1.1",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.2",
-    "echarts": "^5.3.0",
-    "ngx-echarts": "^7.1.0",
-    "xml-parser": "1.2.1"
+    "xml-parser": "1.2.1",
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1102.15",
