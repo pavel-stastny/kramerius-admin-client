@@ -1,5 +1,4 @@
 console.log("!!!! ARCHIVING ....");
-/*
 const fs = require('fs');
 const archiver = require('archiver');
 
@@ -11,4 +10,3 @@ const archive = archiver('zip', {
 archive.pipe(output);
 archive.directory(__dirname +'/dist/kramerius-admin', false);
 archive.finalize();
-*/
