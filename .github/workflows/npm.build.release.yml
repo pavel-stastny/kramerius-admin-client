@@ -2,8 +2,10 @@ name: Build - release
 on:
 #    release:
 #        types: [created,edited]
-    push:
-        branches: [ "main"]
+#    push:
+#        branches: [ "main"]
+  repository_dispatch:
+    types: [custom-event-name]
         
 jobs:
   build:
