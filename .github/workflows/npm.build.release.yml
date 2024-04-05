@@ -1,7 +1,10 @@
 name: Build - release
 on:
-    release:
-        types: [created,edited]
+#    release:
+#        types: [created,edited]
+    push:
+        branches: [ "main"]
+        
 jobs:
   build:
     runs-on: ubuntu-latest
