@@ -9,7 +9,6 @@ on: workflow_dispatch
 #    types: [custom-event-name]
 
 jobs:
-# Building    
   build:
     runs-on: ubuntu-latest
     strategy:
@@ -17,8 +16,8 @@ jobs:
         node-version: [14.x]
     
     steps:
+    # Build 
     - uses: actions/checkout@v3
-
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
@@ -33,9 +32,8 @@ jobs:
       with:
         name: kramerius-admin
         path: dist-zip/kramerius-admin.zip
-  docker:
-    runs-on: ubuntu-latest
-    steps:
+    
+    # Docker image 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v3    
     - name: Set up Docker Buildx
