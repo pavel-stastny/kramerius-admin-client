@@ -37,6 +37,10 @@ jobs:
     #        dist-zip/*.zip
     
     # Docker image 
+    - name: Dump user name
+      env:
+          GITHUB_CONTEXT: ${{ secrets.DOCKERHUB_USERNAME }}
+      run: echo "$GITHUB_CONTEXT"
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v3    
     - name: Set up Docker Buildx
