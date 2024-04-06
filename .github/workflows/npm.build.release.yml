@@ -29,12 +29,12 @@ jobs:
     
     # Create release and upload artifact
     - uses: "marvinpinto/action-automatic-releases@latest"
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: false
-          files: |
-            LICENSE.txt
-            dist-zip/*.zip
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        prerelease: false
+        files: |
+          LICENSE.txt
+          dist-zip/*.zip
     
     # Docker image 
     - name: Set up QEMU
