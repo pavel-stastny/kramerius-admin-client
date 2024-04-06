@@ -51,7 +51,9 @@ jobs:
       run: |
         npm install
         npm run build
-        
+        # Create a copy of 'dist' directory in 'runner.temp'
+        cp -r ./dist ${{ runner.temp }}
+
 
     - uses: actions/upload-artifact@v3
       with:
@@ -89,7 +91,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: dist-zip/kramerius-admin.zip
+        asset_path: ${{ runner.temp }}/dist/kramerius-admin.zip
         asset_name: kramerius-admin.zip
         asset_content_type: application/zip
 
@@ -108,3 +110,4 @@ jobs:
       with:
         push: true
         tags: pavelstastny/kramerius-admin-client:from-github
+        build-args: ADMIN_ADDR=${{ runner.temp }}/kramerius-admin
