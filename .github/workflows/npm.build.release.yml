@@ -46,7 +46,6 @@ jobs:
       env:
         STRATEGY_CONTEXT: ${{ toJson(strategy) }}
       run: echo "$STRATEGY_CONTEXT"
-    - name: Dump matrix context
           
     - name: Build
       run: |
