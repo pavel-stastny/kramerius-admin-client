@@ -111,6 +111,7 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v5
       with:
+        context: .
         push: true
         tags: pavelstastny/kramerius-admin-client:from-github
         build-args: ADMIN_ADDR=${{ runner.temp }}/dist/kramerius-admin
