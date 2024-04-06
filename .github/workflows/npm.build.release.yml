@@ -56,8 +56,8 @@ jobs:
         release_name: ${{ inputs.release_name }}
         body: |
           Description of the release
-          draft: true
-          prerelease: false
+        draft: true
+        prerelease: false
     
     # Upload release asset 
     - name: Upload Release Asset
