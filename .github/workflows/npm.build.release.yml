@@ -37,13 +37,13 @@ jobs:
         path: dist-zip/kramerius-admin.zip
     
     # Create release and upload artifact
-    - uses: "marvinpinto/action-automatic-releases@latest"
-      with:
-        repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        prerelease: false
-        files: |
-          LICENSE.txt
-          dist-zip/*.zip
+    #- uses: "marvinpinto/action-automatic-releases@latest"
+    #  with:
+    #    repo_token: "${{ secrets.GITHUB_TOKEN }}"
+    #    prerelease: false
+    #    files: |
+    #      LICENSE.txt
+    #      dist-zip/*.zip
 
     # Prepare release      
     - name: Create Release
