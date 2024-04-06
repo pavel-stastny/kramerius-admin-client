@@ -113,4 +113,4 @@ jobs:
       with:
         push: true
         tags: pavelstastny/kramerius-admin-client:from-github
-        build-args: ADMIN_ADDR=${{ runner.temp }}/kramerius-admin
+        build-args: ADMIN_ADDR=${{ runner.temp }}/dist/kramerius-admin
