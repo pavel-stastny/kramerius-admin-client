@@ -1,11 +1,5 @@
 name: Release new version of kramerius-admin-client 
 on: workflow_dispatch
-
-jobs:
-# Create distribution and docker image
-  build_zip_docker_image:
-    runs-on: ubuntu-latest
-
     inputs: 
       tag_name:
         description: 'Tag name for the release'
@@ -13,6 +7,11 @@ jobs:
       release_name:
         description: 'Release name'
         required: true
+
+jobs:
+# Create distribution and docker image
+  build_zip_docker_image:
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
