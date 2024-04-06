@@ -62,6 +62,11 @@ jobs:
         MATRIX_CONTEXT: ${{ toJson(matrix) }}
       run: echo "$MATRIX_CONTEXT"
 
+    - name: Dump secret
+      env:
+        DOCKERHUB: ${{ secrets.DOCKERHUB_USERNAME }}
+      run: echo "$DOCKERHUB"
+
     - name: Show default environment variables
       run: |
        echo "The job_id is: $GITHUB_JOB"   # reference the default environment variables
