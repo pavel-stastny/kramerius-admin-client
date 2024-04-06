@@ -11,70 +11,32 @@ jobs:
     
     steps:
     # Build 
-    #- uses: actions/checkout@v3
-    #- name: Use Node.js ${{ matrix.node-version }}
-    #  uses: actions/setup-node@v3
-    #  with:
-    #    node-version: ${{ matrix.node-version }}
-    #
-    #- name: Build
-    #  run: |
-    #    npm install
-    #    npm run build
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+    
+    - name: Build
+      run: |
+        npm install
+        npm run build
 
-    #- uses: actions/upload-artifact@v3
-    #  with:
-    #    name: kramerius-admin
-    #    path: dist-zip/kramerius-admin.zip
+    - uses: actions/upload-artifact@v3
+      with:
+        name: kramerius-admin
+        path: dist-zip/kramerius-admin.zip
     
     # Create release and upload artifact
-    #- uses: "marvinpinto/action-automatic-releases@latest"
-    #    with:
-    #      repo_token: "${{ secrets.GITHUB_TOKEN }}"
-    #      prerelease: false
-    #      files: |
-    #        LICENSE.txt
-    #        dist-zip/*.zip
+    - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          files: |
+            LICENSE.txt
+            dist-zip/*.zip
     
     # Docker image 
-    - name: Dump GitHub context
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "$GITHUB_CONTEXT"
-    - name: Dump job context
-      env:
-        JOB_CONTEXT: ${{ toJson(job) }}
-      run: echo "$JOB_CONTEXT"
-    - name: Dump steps context
-      env:
-        STEPS_CONTEXT: ${{ toJson(steps) }}
-      run: echo "$STEPS_CONTEXT"
-    - name: Dump runner context
-      env:
-        RUNNER_CONTEXT: ${{ toJson(runner) }}
-      run: echo "$RUNNER_CONTEXT"
-    - name: Dump strategy context
-      env:
-        STRATEGY_CONTEXT: ${{ toJson(strategy) }}
-      run: echo "$STRATEGY_CONTEXT"
-    - name: Dump matrix context
-      env:
-        MATRIX_CONTEXT: ${{ toJson(matrix) }}
-      run: echo "$MATRIX_CONTEXT"
-
-    - name: Dump secret
-      env:
-        DOCKERHUB: ${{ secrets.DOCKERHUB_USERNAME }}
-      run: echo "$DOCKERHUB"
-
-    - name: Show default environment variables
-      run: |
-       echo "The job_id is: $GITHUB_JOB"   # reference the default environment variables
-       echo "The id of this action is: $GITHUB_ACTION"   # reference the default environment variables
-       echo "The run id is: $GITHUB_RUN_ID"
-       echo "The GitHub Actor's username is: $GITHUB_ACTOR"
-       echo "GitHub SHA: $GITHUB_SHA"          
-          
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v3    
     - name: Set up Docker Buildx
@@ -84,8 +46,8 @@ jobs:
       with:
         username: ${{secrets.DOCKERHUB_USERNAME}}
         password: ${{secrets.DOCKERHUB_TOKEN}}  
-    #- name: Build and push
-    #  uses: docker/build-push-action@v5
-    #  with:
-    #    push: true
-    #    tags: pavelstastny/kramerius-admin-client:from-github
+    - name: Build and push
+      uses: docker/build-push-action@v5
+      with:
+        push: true
+        tags: pavelstastny/kramerius-admin-client:from-github
