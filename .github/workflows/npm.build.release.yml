@@ -54,7 +54,10 @@ jobs:
         # Create a copy of 'dist' directory in 'runner.temp'
         cp -r ./dist ${{ runner.temp }}
 
-
+    - name: List files in runner.temp directory
+      run: |
+        ls -la ${{ runner.temp }}
+    
     - uses: actions/upload-artifact@v3
       with:
         name: kramerius-admin
