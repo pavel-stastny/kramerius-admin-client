@@ -8,7 +8,14 @@ on:
       release_name:
         description: 'Release name'
         required: true
-
+      dev_mode:
+        description: "Developer mode"
+        type: choice
+        required: true
+        default: 'false'
+        options:
+            - true
+            - false
 jobs:
 # Create distribution and docker image
   build_zip_docker_image:
